@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz – JavaScript Sets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">DSAA</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="try-it.html">Try-It</a>
+    <select id="themeMenu" class="theme-select">
+      <option value="default">Default</option>
+      <option value="cute">Cute Cat</option>
+      <option value="cool">Cool Cat</option>
+    </select>
+  </div>
+</nav>
+
+<section class="hero short">
+  <div>
+    <strong>Assessment</strong>
+    <h1>JavaScript Sets Quiz</h1>
+    <p>Answer each question and check your understanding.</p>
+  </div>
+</section>
+
+<section class="quiz-section">
+  <div class="quiz-container">
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-front">
+        <p id="questionText"></p>
+        <div id="choices"></div>
+      </div>
+      <div class="quiz-back" id="feedback"></div>
+    </div>
+
+    <button id="nextBtn" class="primary-btn">Next Question</button>
+    <p id="quizResult"></p>
+
+    <a href="index.html" class="quiz-link" style="display:block;margin-top:20px;">← Go Back Home</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 <strong>DSAA – JavaScript Sets</strong>. All rights reserved.</p>
+  <p class="footer-contact">
+    Media & Contact: <a href="mailto:dsaa.contact@example.com">dsaa.contact@example.com</a>
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

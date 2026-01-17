@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Try It – JavaScript Sets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">&lt;DSAA&gt;</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#try">Try-It</a>
+
+    <select id="themeMenu" class="theme-select">
+      <option value="default">Default</option>
+      <option value="cute">Cute Cat</option>
+      <option value="cool">Cool Cat</option>
+    </select>
+  </div>
+</nav>
+
+<section class="hero short">
+  <div>
+    <strong>Practice</strong>
+    <h1>Try JavaScript Sets</h1>
+    <p>Write and run your own JavaScript code.</p>
+  </div>
+</section>
+
+<main class="wrapper" id="try">
+  <section class="section">
+    <h2>Code Editor</h2>
+
+    <div class="card">
+      <textarea id="tryCode" rows="10"
+        style="width:100%; font-family:monospace; font-size:14px;">
+const mySet = new Set([1,2,2,3]);
+console.log(mySet);
+      </textarea>
+
+      <button id="runCode" class="primary-btn">Run Code</button>
+      <pre id="output" style="margin-top:14px;"></pre>
+    </div>
+  </section>
+</main>
+
+<script>
+const themeMenu = document.getElementById("themeMenu");
+const heroSection = document.querySelector(".hero");
+
+themeMenu.addEventListener("change", function() {
+  // Remove previous theme classes
+  document.body.classList.remove("cute-cat", "cool-cat");
+
+  // Change based on selection
+  if (this.value === "cute") {
+    document.body.classList.add("cute-cat");
+    heroSection.style.backgroundImage = "url('CutieCat.png')";
+  } else if (this.value === "cool") {
+    document.body.classList.add("cool-cat");
+    heroSection.style.backgroundImage = "url('CoolCutieCat.png')";
+  } else {
+    heroSection.style.backgroundImage = "url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4')";
+  }
+});
+</script>
+
+<script>
+const runBtn = document.getElementById("runCode");
+const codeArea = document.getElementById("tryCode");
+const output = document.getElementById("output");
+
+if (runBtn) {
+  runBtn.onclick = () => {
+    output.textContent = "";
+
+    const logs = [];
+    const originalLog = console.log;
+
+    try {
+      console.log = (...args) => logs.push(args.join(" "));
+      eval(codeArea.value);
+      output.textContent = logs.join("\n") || "Code executed successfully.";
+    } catch (err) {
+      output.textContent = err.message;
+    } finally {
+      console.log = originalLog;
+    }
+  };
+}
+</script>
+
+  </section>
+
+<footer class="site-footer">
+  <p>
+    © 2026 <strong>DSAA – JavaScript Sets</strong>. All rights reserved.
+  </p>
+  <p class="footer-contact">
+    Media & Contact:
+    <a href="mailto:dsaa.contact@example.com">
+      dsaa.contact@example.com
+    </a>
+  </p>
+</footer>
+</body>
+</html>

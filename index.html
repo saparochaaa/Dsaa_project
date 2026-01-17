@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Sets – Chapter 9</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">&lt;DSAA&gt;</div>
+
+  <div class="nav-links">
+    <a href="about.html">About Us</a>
+    <a href="try-it.html">Try-It</a>
+    <a href="quiz.html">Quiz</a>
+
+    <select id="themeMenu" class="theme-select">
+      <option value="default">Default</option>
+      <option value="cute">Cute Cat</option>
+      <option value="cool">Cool Cat</option>
+    </select>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <strong>Chapter 9</strong>
+    <h1>JavaScript Sets</h1>
+    <p>Learn about JavaScript Sets, their operations, and usage.</p>
+    <a href="#content"><button>Start Learning</button></a>
+  </div>
+</section>
+
+<main class="wrapper" id="content">
+
+<section class="intro">
+  <div>
+    <h2>Introduction to JavaScript Sets</h2>
+    <p>
+      A set is a collection of unordered and unique elements.
+      Unlike arrays, sets automatically remove duplicate values.
+    </p>
+    <span style="font-size:11px"><br></span>
+    <p>
+      JavaScript provides a native <code>Set</code> object that supports
+      constant-time insertion, deletion, and lookup operations.
+    </p>
+  </div>
+
+  <div class="card example-card">
+    <strong>Example Card</strong>
+    <p>
+      Demonstrates automatic removal of duplicates.
+    </p>
+    <textarea>
+const numbers = new Set([1,2,3,3]);
+console.log(numbers);
+    </textarea>
+    <button class="run-example">Run</button>
+    <pre></pre>
+    <span style="font: size 15px;px"><br></span>
+    <p><strong>Output should be:</strong> {1, 2, 3}</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Creating Sets</h2>
+  <div class="two-col">
+
+    <div>
+      <p>
+        Sets are created using the <code>new Set()</code> constructor. They can be initialized
+        empty or populated using iterable objects such as arrays.
+      </p>
+
+      <span style="font-size:11px"><br></span>
+
+      <p>
+        Any duplicate values provided during initialization or insertion are automatically ignored.
+      </p>
+
+      <span style="font-size:11px"><br></span>
+
+      <p>
+        Values are inserted using the <code>add()</code> method.
+      </p>
+    </div>
+
+    <div class="card example-card">
+      <strong>Example Card</strong>
+      <p>
+        Creating a set with mixed values.
+      </p>
+      <textarea>
+const mySet = new Set([2, true, 2, 'text']);
+console.log(mySet);
+console.log(mySet.size);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <span style="font-size:10px"><br></span>
+      <p><strong>Expected Output:</strong> {2, true, 'text'} 3</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Core Set Operations</h2>
+
+  <p>
+    JavaScript Sets provide essential operations that allow efficient handling
+    of unique data elements.
+  </p>
+
+  <div class="op-grid">
+
+    <div class="card example-card">
+      <strong>add()</strong>
+      <p>Inserts a value if it does not exist yet.</p>
+      <textarea>
+const s = new Set();
+s.add(1);
+s.add(1);
+console.log(s);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <span style="font-size:10px"><br></span>
+      <p><strong>Expected Output:</strong> {1}</p>
+    </div>
+
+    <div class="card example-card">
+      <strong>delete()</strong>
+      <p>Removes a specified value from the set.</p>
+      <textarea>
+const s = new Set([1,2,3]);
+s.delete(2);
+console.log(s);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Expected Output:</strong> {1,3}</p>
+    </div>
+
+    <div class="card example-card">
+      <strong>has()</strong>
+      <p>Checks whether a value exists within the set.</p>
+      <textarea>
+const s = new Set([5,10]);
+console.log(s.has(10));
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Expected Output:</strong> true</p>
+    </div>
+
+    <div class="card example-card">
+      <strong>size</strong>
+      <p>Returns the total number of unique elements.</p>
+      <textarea>
+const s = new Set([1,1,2]);
+console.log(s.size);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Expected Output:</strong> 2</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>Advanced Set Operations</h2>
+
+  <div class="op-grid">
+
+    <div class="card example-card">
+      <strong>Union</strong>
+      <textarea>
+const a = new Set([1,2,3]);
+const b = new Set([3,4,5]);
+const union = new Set([...a, ...b]);
+console.log(union);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Output:</strong> {1,2,3,4,5}</p>
+    </div>
+
+    <div class="card example-card">
+      <strong>Intersection</strong>
+      <textarea>
+const a = new Set([1,2,3]);
+const b = new Set([2,3,4]);
+const intersection = new Set([...a].filter(x => b.has(x)));
+console.log(intersection);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Output:</strong> {2,3}</p>
+    </div>
+
+    <div class="card example-card">
+      <strong>Difference</strong>
+      <textarea>
+const a = new Set([1,2,3]);
+const b = new Set([2]);
+const difference = new Set([...a].filter(x => !b.has(x)));
+console.log(difference);
+      </textarea>
+      <button class="run-example">Run</button>
+      <pre></pre>
+      <p><strong>Output:</strong> {1,3}</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="checkup">
+  <div>
+    <h2>Checking Duplicates</h2>
+    <p>
+      Sets can be used to efficiently detect duplicate values in arrays.
+    </p>
+  </div>
+
+  <div class="card example-card">
+    <strong>Example Card</strong>
+    <textarea>
+function checkDuplicates(arr) {
+  return new Set(arr).size < arr.length;
+}
+
+console.log(checkDuplicates([1,2,3])); // false
+console.log(checkDuplicates([1,2,2])); // true
+    </textarea>
+    <button class="run-example">Run</button>
+    <pre></pre>
+  </div>
+</section>
+
+</main>
+
+<section class="section quiz-cta">
+  <h2>Ready to Test Yourself?</h2>
+  <p>Answer the quiz questions to check your understanding.</p>
+  <a href="quiz.html" class="quiz-link">
+    Take the Quiz →
+  </a>
+</section>
+
+<script src="script.js"></script>
+
+<script>
+// Runnable example card logic
+document.querySelectorAll(".run-example").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const card = btn.parentElement;
+    const code = card.querySelector("textarea").value;
+    const outputEl = card.querySelector("pre");
+    const logs = [];
+    const originalLog = console.log;
+    try {
+      console.log = (...args) => {
+        logs.push(args.map(a => a instanceof Set ? `{${[...a].join(", ")}}` : a).join(" "));
+      };
+      eval(code);
+      outputEl.textContent = logs.join("\n") || "Code executed successfully.";
+    } catch (err) {
+      outputEl.textContent = err.message;
+    } finally {
+      console.log = originalLog;
+    }
+  });
+});
+</script>
+
+<footer class="site-footer">
+  <p>
+    © 2026 <strong>DSAA – JavaScript Sets</strong>. All rights reserved.
+  </p>
+  <p class="footer-contact">
+    Media & Contact:
+    <a href="mailto:dsaa.contact@example.com">
+      dsaa.contact@example.com
+    </a>
+  </p>
+</footer>
+
+</body>
+</html>
